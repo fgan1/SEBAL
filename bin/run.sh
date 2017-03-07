@@ -61,6 +61,8 @@ function preProcessImage {
   #mvn -e install -Dmaven.test.skip=true
 
   sudo java -Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n -Dlog4j.configuration=file:$LOG4J_PATH -Djava.library.path=$LIBRARY_PATH -cp target/SEBAL-0.0.1-SNAPSHOT.jar:target/lib/* org.fogbowcloud.sebal.PreProcessMain $IMAGES_DIR_PATH/ $IMAGE_MTL_PATH $RESULTS_DIR_PATH/ 0 0 9000 9000 1 1 $SEBAL_DIR_PATH/$BOUNDING_BOX_PATH $SEBAL_DIR_PATH/$CONF_FILE $IMAGE_MTL_FMASK_PATH
+  original_image_name=${IMAGE_NAME::-4}
+  sudo cp $RESULTS_DIR_PATH"/"$original_image_name"/"$original_image_name"_station.csv" $IMAGE_STATION_FILE_PATH  
   sudo chmod 777 $IMAGE_STATION_FILE_PATH
   echo -e "\n" >> $IMAGE_STATION_FILE_PATH
   cd ..
