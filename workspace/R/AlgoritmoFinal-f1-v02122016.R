@@ -46,7 +46,7 @@ WGS84<- "+proj=longlat +datum=WGS84 +ellps=WGS84"
 ######################### Image Information ######################################
 fic.dir<-dados$File.images[1]                     #Images file reading
 m<-nchar(dados$File.images)                       #Number of file characters
-fic<-substring(fic.dir,m[1]-20)                   #Image name that will be processed
+fic<-substring(fic.dir, m[1] - 24, m[1] - 4)      #Image name that will be processed
 n.sensor<-as.numeric(substr(fic,3,3))             #Sensor Number
 WRSPR<-substr(fic,4,9)                            #WRSPR
 Ano<-as.numeric(substr(fic,10,13))                #Images year
